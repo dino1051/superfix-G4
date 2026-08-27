@@ -13,6 +13,15 @@
 13
 14
 15
+16
+17
+18
+19
+20
+21 Validar que ID se numero.
+22 Validad que al sumar calificaciones al inicio empiece con 0
+23 solo se puede calcular el promedio si hay elementos.
+24 odren entre estudiante y profesor estaban intercambiados
 16 cursos.controller linea 28, if (curso) -> if (!curso) condicion incorrecta
 17 cursos.controller.ts linea 2, no habia importacion de Request, Response y Next
 18 cursos.model.ts linea 45, query("DELETE FROM cursos", [id]) -> ("DELETE FROM cursos WHERE id = $1", [id])

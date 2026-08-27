@@ -3,9 +3,9 @@
 3
 4
 5
-6
-7
-8
+6 - BUG: la funcion importada en profesores.controller se llama "crearProfesor", no "crearProfesores"
+7 - BUG: en crearProfesor del models falto agregar el telefono en el INSERT
+8 - BUG: en el endpoin delete si el profesor no existe aun asi aparece que fue eliminado
 9
 10
 11
@@ -22,4 +22,13 @@
 22 Validad que al sumar calificaciones al inicio empiece con 0
 23 solo se puede calcular el promedio si hay elementos.
 24 odren entre estudiante y profesor estaban intercambiados
+16 cursos.controller linea 28, if (curso) -> if (!curso) condicion incorrecta
+17 cursos.controller.ts linea 2, no habia importacion de Request, Response y Next
+18 cursos.model.ts linea 45, query("DELETE FROM cursos", [id]) -> ("DELETE FROM cursos WHERE id = $1", [id])
+19 cursos.model.ts linea 39, [descripcion,nombre , id] - > [nombre, descripcion, id] nombre es el primer elemento en aparecer
+20 cursos.model.ts linea 10, curso -> cursos, la tabla se llama cursos
+21
+22
+23
+24
 25

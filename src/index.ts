@@ -27,11 +27,14 @@ app.use("/api/profesores", profesoresRouter);
 app.use("/api/calificaciones", calificacionesRouter);
 
 app.get("/", (req, res) => {
-  res.json({ mensaje: "Bienvenido a la API de El Colegio de Kevin. Ve a /api-docs" });
+  res.json({
+    mensaje: "Bienvenido a la API de El Colegio de Kevin. Ve a /api-docs",
+  });
 });
 
 const PORT = process.env.PORT ?? 3000;
 
+console.clear();
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
   console.log(`Documentacion en http://localhost:${PORT}/api-docs`);

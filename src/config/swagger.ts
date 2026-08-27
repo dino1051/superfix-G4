@@ -107,7 +107,14 @@ export const swaggerSpec = {
       get: {
         tags: ["Cursos"],
         summary: "Obtener un curso por id",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
         responses: {
           200: { description: "Curso encontrado" },
           404: { description: "No encontrado" },
@@ -116,7 +123,14 @@ export const swaggerSpec = {
       put: {
         tags: ["Cursos"],
         summary: "Actualizar un curso",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
         requestBody: {
           required: true,
           content: {
@@ -133,7 +147,14 @@ export const swaggerSpec = {
       delete: {
         tags: ["Cursos"],
         summary: "Eliminar un curso",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
         responses: {
           200: { description: "Curso eliminado" },
           404: { description: "No encontrado" },
@@ -157,20 +178,64 @@ export const swaggerSpec = {
             },
           },
         },
-        responses: { 201: { description: "Estudiante creado" }, 400: { description: "Datos invalidos" } },
+        responses: {
+          201: { description: "Estudiante creado" },
+          400: { description: "Datos invalidos" },
+        },
+      },
+    },
+    "/estudiantes/buscar": {
+      get: {
+        tags: ["Estudiantes"],
+        summary:
+          "Listar todos los estudiantes que coincidan con el campo: nombre",
+        parameters: [
+          {
+            name: "nombre",
+            in: "query",
+            required: false,
+            description:
+              "Nombre o término parcial para filtrar la búsqueda de estudiantes",
+            schema: {
+              type: "string",
+              example: "Manu",
+            },
+          },
+        ],
+        responses: {
+          200: { description: "Lista de estudiantes" },
+          404: { description: "No encontrado" },
+        },
       },
     },
     "/estudiantes/{id}": {
       get: {
         tags: ["Estudiantes"],
         summary: "Obtener un estudiante por id",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
-        responses: { 200: { description: "Estudiante encontrado" }, 404: { description: "No encontrado" } },
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
+        responses: {
+          200: { description: "Estudiante encontrado" },
+          404: { description: "No encontrado" },
+        },
       },
       put: {
         tags: ["Estudiantes"],
         summary: "Actualizar un estudiante",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
         requestBody: {
           required: true,
           content: {
@@ -179,13 +244,26 @@ export const swaggerSpec = {
             },
           },
         },
-        responses: { 200: { description: "Estudiante actualizado" }, 404: { description: "No encontrado" } },
+        responses: {
+          200: { description: "Estudiante actualizado" },
+          404: { description: "No encontrado" },
+        },
       },
       delete: {
         tags: ["Estudiantes"],
         summary: "Eliminar un estudiante",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
-        responses: { 200: { description: "Estudiante eliminado" }, 404: { description: "No encontrado" } },
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
+        responses: {
+          200: { description: "Estudiante eliminado" },
+          404: { description: "No encontrado" },
+        },
       },
     },
     "/profesores": {
@@ -205,20 +283,40 @@ export const swaggerSpec = {
             },
           },
         },
-        responses: { 201: { description: "Profesor creado" }, 400: { description: "Datos invalidos" } },
+        responses: {
+          201: { description: "Profesor creado" },
+          400: { description: "Datos invalidos" },
+        },
       },
     },
     "/profesores/{id}": {
       get: {
         tags: ["Profesores"],
         summary: "Obtener un profesor por id",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
-        responses: { 200: { description: "Profesor encontrado" }, 404: { description: "No encontrado" } },
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
+        responses: {
+          200: { description: "Profesor encontrado" },
+          404: { description: "No encontrado" },
+        },
       },
       put: {
         tags: ["Profesores"],
         summary: "Actualizar un profesor",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
         requestBody: {
           required: true,
           content: {
@@ -227,13 +325,26 @@ export const swaggerSpec = {
             },
           },
         },
-        responses: { 200: { description: "Profesor actualizado" }, 404: { description: "No encontrado" } },
+        responses: {
+          200: { description: "Profesor actualizado" },
+          404: { description: "No encontrado" },
+        },
       },
       delete: {
         tags: ["Profesores"],
         summary: "Eliminar un profesor",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
-        responses: { 200: { description: "Profesor eliminado" }, 404: { description: "No encontrado" } },
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
+        responses: {
+          200: { description: "Profesor eliminado" },
+          404: { description: "No encontrado" },
+        },
       },
     },
     "/calificaciones": {
@@ -253,28 +364,58 @@ export const swaggerSpec = {
             },
           },
         },
-        responses: { 201: { description: "Calificacion creada" }, 400: { description: "Datos invalidos" } },
+        responses: {
+          201: { description: "Calificacion creada" },
+          400: { description: "Datos invalidos" },
+        },
       },
     },
     "/calificaciones/estudiante/{estudianteId}": {
       get: {
         tags: ["Calificaciones"],
-        summary: "Listar las calificaciones de un estudiante junto con su promedio",
-        parameters: [{ name: "estudianteId", in: "path", required: true, schema: { type: "integer" } }],
-        responses: { 200: { description: "Calificaciones y promedio del estudiante" } },
+        summary:
+          "Listar las calificaciones de un estudiante junto con su promedio",
+        parameters: [
+          {
+            name: "estudianteId",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
+        responses: {
+          200: { description: "Calificaciones y promedio del estudiante" },
+        },
       },
     },
     "/calificaciones/{id}": {
       get: {
         tags: ["Calificaciones"],
         summary: "Obtener una calificacion por id",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
-        responses: { 200: { description: "Calificacion encontrada" }, 404: { description: "No encontrada" } },
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
+        responses: {
+          200: { description: "Calificacion encontrada" },
+          404: { description: "No encontrada" },
+        },
       },
       put: {
         tags: ["Calificaciones"],
         summary: "Actualizar una calificacion",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
         requestBody: {
           required: true,
           content: {
@@ -283,13 +424,26 @@ export const swaggerSpec = {
             },
           },
         },
-        responses: { 200: { description: "Calificacion actualizada" }, 404: { description: "No encontrada" } },
+        responses: {
+          200: { description: "Calificacion actualizada" },
+          404: { description: "No encontrada" },
+        },
       },
       delete: {
         tags: ["Calificaciones"],
         summary: "Eliminar una calificacion",
-        parameters: [{ name: "id", in: "path", required: true, schema: { type: "integer" } }],
-        responses: { 200: { description: "Calificacion eliminada" }, 404: { description: "No encontrada" } },
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "integer" },
+          },
+        ],
+        responses: {
+          200: { description: "Calificacion eliminada" },
+          404: { description: "No encontrada" },
+        },
       },
     },
   },

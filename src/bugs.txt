@@ -18,8 +18,8 @@
 18
 19
 20
-21
-22
-23
-24
+21 Validar que ID se numero.
+22 Validad que al sumar calificaciones al inicio empiece con 0
+23 solo se puede calcular el promedio si hay elementos.
+24 odren entre estudiante y profesor estaban intercambiados
 25

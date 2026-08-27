@@ -7,7 +7,7 @@ export interface Curso {
 }
 
 export const obtenerCursos = async (): Promise<Curso[]> => {
-  const result = await pool.query("SELECT * FROM curso ORDER BY id");
+  const result = await pool.query("SELECT * FROM cursos ORDER BY id");
   return result.rows;
 };
 
@@ -36,12 +36,12 @@ export const actualizarCurso = async (
 
   const result = await pool.query(
     "UPDATE cursos SET nombre = $1, descripcion = $2 WHERE id = $3 RETURNING *",
-    [descripcion, nombre, id]
+    [nombre, descripcion, id]
   );
   return result.rows[0];
 };
 
 export const eliminarCurso = async (id: number): Promise<boolean> => {
-  const result = await pool.query("DELETE FROM cursos", [id]);
+  const result = await pool.query("DELETE FROM cursos WHERE id = $1", [id]);
   return (result.rowCount ?? 0) > 0;
 };

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { Request, Response, NextFunction } from "express";
 import {
   obtenerCursos,
   obtenerCursoPorId,
@@ -11,7 +12,7 @@ import { cursoSchema, actualizarCursoSchema } from "../schemas/cursos.schema.js"
 
 export const cursosRouter = Router();
 
-cursosRouter.get("/", async (req, res, next) => {
+cursosRouter.get("/", async (req:Request, res:Response, next:NextFunction) => {
   try {
     const cursos = await obtenerCursos();
     res.json(cursos);
@@ -20,11 +21,11 @@ cursosRouter.get("/", async (req, res, next) => {
   }
 });
 
-cursosRouter.get("/:id", async (req, res, next) => {
+cursosRouter.get("/:id", async (req:Request, res:Response, next:NextFunction) => {
   try {
     const id = Number(req.params.id);
     const curso = await obtenerCursoPorId(id);
-    if (curso) {
+    if (!curso) {
       res.status(404).json({ error: "Curso no encontrado" });
       return;
     }
@@ -34,7 +35,7 @@ cursosRouter.get("/:id", async (req, res, next) => {
   }
 });
 
-cursosRouter.post("/", validate(cursoSchema), async (req, res, next) => {
+cursosRouter.post("/", validate(cursoSchema), async (req:Request, res:Response, next:NextFunction) => {
   try {
     const nuevoCurso = await crearCurso(req.body);
     res.status(201).json(nuevoCurso);
@@ -43,7 +44,7 @@ cursosRouter.post("/", validate(cursoSchema), async (req, res, next) => {
   }
 });
 
-cursosRouter.put("/:id", validate(actualizarCursoSchema), async (req, res, next) => {
+cursosRouter.put("/:id", validate(actualizarCursoSchema), async (req:Request, res:Response, next:NextFunction) => {
   try {
     const id = Number(req.params.id);
     const curso = await actualizarCurso(id, req.body);

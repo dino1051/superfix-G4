@@ -8,11 +8,11 @@
 8 - BUG: en el endpoin delete si el profesor no existe aun asi aparece que fue eliminado
 9
 10
-11
-12
-13
-14
-15
+11-config/db.ts: línea 10 => password: process.env.DB_PASSWORD,
+12-models/estudiantes.model.ts: linea 16=> 'WHERE id'
+13-controllers/estudiantes.controller.ts: linea 59=> const id = Number(req.params.id);
+14-models/estudiantes.model.ts: linea 40=>  const edad = data.edad || actual.edad; (antes actualizaba con 0 cuando no se registraba explicitamente)
+15-models/estudiantes.model.ts: linea 12=>   return result.rows; (no ordenaba asc)
 16
 17
 18
@@ -32,3 +32,8 @@
 23
 24
 25
+26-controllers/estudiante.controller.ts: falto: import type { Request, Response, NextFunction } from "express";
+27-controllers/estudiantes.controller.ts:  falto la condicion: if (estudiantes.length === 0) {res.status(404).json({ error: "Estudiante no encontrado" });return;}
+28-models/estudiante.modelts: En buscarEstudiantesPorNombre =>  "... WHERE nombre ILIKE $1 ORDER BY id"
+29-config/swagger.ts: Falto agregar en estudiantes: "/estudiantes/buscar": 
+

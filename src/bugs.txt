@@ -3,9 +3,9 @@
 3
 4
 5
-6
-7
-8
+6 - BUG: la funcion importada en profesores.controller se llama "crearProfesor", no "crearProfesores"
+7 - BUG: en crearProfesor del models falto agregar el telefono en el INSERT
+8 - BUG: en el endpoin delete si el profesor no existe aun asi aparece que fue eliminado
 9
 10
 11
